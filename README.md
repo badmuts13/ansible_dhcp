@@ -12,16 +12,14 @@ This role uses no variables in file. It does use with_items for the FW config.
 None
 
 Example Playbook
-----------------
----
-# YAML file for dhcp roles
-#
-# Keep this file as clean as possible! 
-#
-- hosts: dhcp
-  become: true
-  roles:
-    - ansible_dhcp
+	# YAML file for dhcp roles
+	#
+	# Keep this file as clean as possible! 
+	#
+	- hosts: dhcp
+	  become: true
+	  roles:
+	    - ansible_dhcp
 
 License
 -------
