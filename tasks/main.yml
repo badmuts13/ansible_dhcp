@@ -1,0 +1,35 @@
+---
+# tasks file for dhcp
+#
+# The tasks names should be sufficient to know what is happening
+
+- name: Firewall - Configure needed services
+  firewalld:
+    service: "{{ item }}"
+    permanent: true
+    immediate: true
+    state: enabled
+  with_items:
+    - dhcp
+  notify: restart firewalld
+
+- name: Check if DHCP service is installed
+  yum:
+    name: dhcp
+    state: present
+
+- name: Check if DHCP service is enabled and running
+  service:
+    name: dhcpd
+    state: started
+    enabled: yes
+
+- name: Check if DHCP configuration is present and up-to-date
+  copy:
+    src: files/dhcpd.conf
+    dest: /etc/dhcp/dhcpd.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart dhcpd
+

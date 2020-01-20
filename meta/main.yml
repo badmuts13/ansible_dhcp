@@ -1,0 +1,19 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: badmuts13
+  description: Ansible role to setup DHCP
+  company: "Stichting Volandis"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.6
+  platforms:
+    - name: EL
+      versions:
+        - 7
+  galaxy_tags:
+    - networking
+    - system
+    - dhcp 
+
+allow_duplicates: true
